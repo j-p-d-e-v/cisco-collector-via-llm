@@ -1,0 +1,54 @@
+[
+  { "role": "user", "content": "Collect show version and show clock from 10.0.0.1 with username admin and password cisco" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"admin\", \"password\": \"cisco\", \"host\": \"10.0.0.1\", \"commands\": [\"show version\", \"show clock\"]}]" },
+
+  { "role": "user", "content": "Collect show ip interface brief from 192.168.1.1 with username user1 and password secret" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"user1\", \"password\": \"secret\", \"host\": \"192.168.1.1\", \"commands\": [\"show ip interface brief\"]}]" },
+
+  { "role": "user", "content": "Collect show interfaces and show ip route from 172.16.0.2 with username ops and password opspass" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"ops\", \"password\": \"opspass\", \"host\": \"172.16.0.2\", \"commands\": [\"show interfaces\", \"show ip route\"]}]" },
+
+  { "role": "user", "content": "Collect show version, show arp, and show log from 192.168.100.1 with username admin and password admin123" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"admin\", \"password\": \"admin123\", \"host\": \"192.168.100.1\", \"commands\": [\"show version\", \"show arp\", \"show log\"]}]" },
+
+  { "role": "user", "content": "Collect show processes cpu and show processes memory from 10.10.10.10 with username root and password rootpass" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"root\", \"password\": \"rootpass\", \"host\": \"10.10.10.10\", \"commands\": [\"show processes cpu\", \"show processes memory\"]}]" },
+
+  { "role": "user", "content": "Collect show ip bgp summary from 10.1.1.1 with username netadmin and password bgp123" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"netadmin\", \"password\": \"bgp123\", \"host\": \"10.1.1.1\", \"commands\": [\"show ip bgp summary\"]}]" },
+
+  { "role": "user", "content": "Collect show clock, show route ipv4, show arp, show run interface, and show version from sandbox-iosxr-1.cisco.com with username admin and password C1sco12345" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"admin\", \"password\": \"C1sco12345\", \"host\": \"sandbox-iosxr-1.cisco.com\", \"commands\": [\"show clock\", \"show route ipv4\", \"show arp\", \"show run interface\", \"show version\"]}]" },
+
+  { "role": "user", "content": "Collect show clock, show route ipv4, show arp, show run interface, and show version from 10.1.1.1with username admin and password mypassword" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"admin\", \"password\": \"mypassword\", \"host\": \"10.1.1.1\", \"commands\": [\"show clock\", \"show route ipv4\", \"show arp\", \"show run interface\", \"show version\"]}]" },
+
+  { "role": "user", "content": "Collect show version and show clock from router-a.example.net with username admin and password cisco" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"admin\", \"password\": \"cisco\", \"host\": \"router-a.example.net\", \"commands\": [\"show version\", \"show clock\"]}]" },
+
+  { "role": "user", "content": "Collect show ip interface brief from switch01.localdomain with username user1 and password secret" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"user1\", \"password\": \"secret\", \"host\": \"switch01.localdomain\", \"commands\": [\"show ip interface brief\"]}]" },
+
+  { "role": "user", "content": "Collect show interfaces and show ip route from gw-east.network.com with username ops and password opspass" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"ops\", \"password\": \"opspass\", \"host\": \"gw-east.network.com\", \"commands\": [\"show interfaces\", \"show ip route\"]}]" },
+
+  { "role": "user", "content": "Collect show version, show arp, and show log from node-b.myorg.net with username admin and password admin123" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"admin\", \"password\": \"admin123\", \"host\": \"node-b.myorg.net\", \"commands\": [\"show version\", \"show arp\", \"show log\"]}]" },
+
+  { "role": "user", "content": "Collect show processes cpu and show processes memory from diag-x.site.net with username root and password rootpass" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"root\", \"password\": \"rootpass\", \"host\": \"diag-x.site.net\", \"commands\": [\"show processes cpu\", \"show processes memory\"]}]" },
+
+  { "role": "user", "content": "Collect show ip bgp summary from edge-router-west.internal with username netadmin and password bgp123" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"netadmin\", \"password\": \"bgp123\", \"host\": \"edge-router-west.internal\", \"commands\": [\"show ip bgp summary\"]}]" },
+
+  { "role": "user", "content": "Collect show clock, show route ipv4, show arp, show run interface, and show version from sandbox-iosxr-1.cisco.com with username admin and password C1sco12345" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"admin\", \"password\": \"C1sco12345\", \"host\": \"sandbox-iosxr-1.cisco.com\", \"commands\": [\"show clock\", \"show route ipv4\", \"show arp\", \"show run interface\", \"show version\"]}]" },
+
+  { "role": "user", "content": "Collect show clock, show route ipv4, show arp, show run interface, and show version from core1.gateway.org with username admin and password mypassword" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"admin\", \"password\": \"mypassword\", \"host\": \"core1.gateway.org\", \"commands\": [\"show clock\", \"show route ipv4\", \"show arp\", \"show run interface\", \"show version\"]}]" },
+
+  { "role": "user", "content": "Collect show clock, show route ipv4, show arp, show run interface, and show version from router.com with username admin and password mypassword" },
+  { "role": "assistant", "content": "[{\"action\": \"collect\", \"username\": \"admin\", \"password\": \"mypassword\", \"host\": \"router.com\", \"commands\": [\"show clock\", \"show route ipv4\", \"show arp\", \"show run interface\", \"show version\"]}]" }
+  
+
+]

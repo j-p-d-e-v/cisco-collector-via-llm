@@ -1,0 +1,47 @@
+[
+    {
+        "role": "user",
+        "content": "Configure Loopback1 interface description to \"this is my description\" of 10.10.10.1 with username admin and password router123"
+    },
+    {
+        "role": "assistant",
+        "content": "[\n  {\n    \"action\": \"configure-interface-description\",\n    \"username\": \"admin\",\n    \"password\": \"router123\",\n    \"host\": \"10.10.10.1\",\n    \"interface\": \"Loopback1\",\n    \"description\": \"this is my description\"\n  }\n]"
+    },
+    {
+        "role": "user",
+        "content": "Set interface GigabitEthernet0/1 description to \"Uplink to Core Switch\" on 192.168.0.1 using user netops and password cisco"
+    },
+    {
+        "role": "assistant",
+        "content": "[\n  {\n    \"action\": \"configure-interface-description\",\n    \"username\": \"netops\",\n    \"password\": \"cisco\",\n    \"host\": \"192.168.0.1\",\n    \"interface\": \"GigabitEthernet0/1\",\n    \"description\": \"Uplink to Core Switch\"\n  }\n]"
+    },
+    {
+        "role": "user",
+        "content": "Change description of interface Ethernet1/1 to \"Customer Edge\" on device 172.16.1.1 with username admin and password pass123"
+    },
+    {
+        "role": "assistant",
+        "content": "[\n  {\n    \"action\": \"configure-interface-description\",\n    \"username\": \"admin\",\n    \"password\": \"pass123\",\n    \"host\": \"172.16.1.1\",\n    \"interface\": \"Ethernet1/1\",\n    \"description\": \"Customer Edge\"\n  }\n]"
+    },
+    {
+        "role": "user",
+        "content": "On 10.0.0.1, configure Loopback0 with description \"Backup Tunnel\" using username sysadmin and password secret321"
+    },
+    {
+        "role": "assistant",
+        "content": "[\n  {\n    \"action\": \"configure-interface-description\",\n    \"username\": \"sysadmin\",\n    \"password\": \"secret321\",\n    \"host\": \"10.0.0.1\",\n    \"interface\": \"Loopback0\",\n    \"description\": \"Backup Tunnel\"\n  }\n]"
+    },
+
+  { "role": "user", "content": "Configure Loopback1 interface description to \"this is my description\" of router-a.example.net with username admin and password router123" },
+  { "role": "assistant", "content": "[{\n  \"action\": \"configure-interface-description\",\n  \"username\": \"admin\",\n  \"password\": \"router123\",\n  \"host\": \"router-a.example.net\",\n  \"interface\": \"Loopback1\",\n  \"description\": \"this is my description\"\n}]" },
+
+  { "role": "user", "content": "Set interface GigabitEthernet0/1 description to \"Uplink to Core Switch\" on switch-01.mynetwork.org using user netops and password cisco" },
+  { "role": "assistant", "content": "[{\n  \"action\": \"configure-interface-description\",\n  \"username\": \"netops\",\n  \"password\": \"cisco\",\n  \"host\": \"switch-01.mynetwork.org\",\n  \"interface\": \"GigabitEthernet0/1\",\n  \"description\": \"Uplink to Core Switch\"\n}]" },
+
+  { "role": "user", "content": "Change description of interface Ethernet1/1 to \"Customer Edge\" on device edge-router01.mycorp.net with username admin and password pass123" },
+  { "role": "assistant", "content": "[{\n  \"action\": \"configure-interface-description\",\n  \"username\": \"admin\",\n  \"password\": \"pass123\",\n  \"host\": \"edge-router01.mycorp.net\",\n  \"interface\": \"Ethernet1/1\",\n  \"description\": \"Customer Edge\"\n}]" },
+
+  { "role": "user", "content": "On rtr-east.cloud.org, configure Loopback0 with description \"Backup Tunnel\" using username sysadmin and password secret321" },
+  { "role": "assistant", "content": "[{\n  \"action\": \"configure-interface-description\",\n  \"username\": \"sysadmin\",\n  \"password\": \"secret321\",\n  \"host\": \"rtr-east.cloud.org\",\n  \"interface\": \"Loopback0\",\n  \"description\": \"Backup Tunnel\"\n}]" }
+
+]

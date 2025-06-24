@@ -11,12 +11,12 @@ This proof of concept demonstrates how a Large Language Model (LLM) can be used 
 
 ### 🔍 Log Collection
 ```
-Collect show clock, show route ipv4, show arp, show run interface, and show version from sandbox-iosxr-1.cisco.com with username admin and password C1sco12345
+Collect show clock, show route ipv4, show arp, show run interface, and show version from sandbox-iosxr-1.cisco.com with username admin and password mypassword
 ```
 
 ### 🔧 Configure Interface Description
 ```
-Configure Loopback1 interface description to "hello cisco ai 123" of sandbox-iosxr-1.cisco.com with username admin and password C1sco12345
+Configure Loopback1 interface description to "hello cisco ai 123" of sandbox-iosxr-1.cisco.com with username admin and password mypassword
 ```
 
 ---
