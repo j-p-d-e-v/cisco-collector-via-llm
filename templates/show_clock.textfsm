@@ -1,0 +1,6 @@
+Value LINE1_DATE (\w{3} \w{3} \d{1,2} \d{2}:\d{2}:\d{2}\.\d{3} UTC)
+Value LINE2_DATE (\d{2}:\d{2}:\d{2}\.\d{3} UTC \w{3} \w{3} \d{1,2} \d{4})
+
+Start
+  ^${LINE1_DATE}
+  ^${LINE2_DATE} -> Record

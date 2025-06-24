@@ -1,0 +1,14 @@
+Value VERSION ([\d.]+)
+Value BUILT_ON (.+)
+Value BUILT_BY (\S+)
+Value BUILT_HOST (\S+)
+Value PLATFORM (.+)
+Value UPTIME (.+)
+
+Start
+  ^Cisco IOS XR Software, Version ${VERSION}
+  ^ Built By\s+:\s+${BUILT_BY}
+  ^ Built On\s+:\s+${BUILT_ON}
+  ^ Built Host\s+:\s+${BUILT_HOST}
+  ^cisco ${PLATFORM} \(\) processor
+  ^System uptime is ${UPTIME} -> Record

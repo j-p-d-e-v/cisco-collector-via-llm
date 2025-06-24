@@ -1,0 +1,13 @@
+services:
+  llm_py:
+    image: python:3.13.5
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      - LLM_BASE_URL=http://127.0.0.1:8000
+      - SANDBOX_HOST=sandbox-iosxr-1.cisco.com
+      - SANDBOX_USERNAME=admin
+      - SANDBOX_PASSWORD=admin
+      - SANDBOX_PORT=22
+    tty: true
