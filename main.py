@@ -57,7 +57,6 @@ def interact_llm(prompt):
                 "role": "assistant",
                 "content": "[\n  {\n    \"action\": \"configure-interface-description\",\n    \"username\": \"admin\",\n    \"password\": \"router123\",\n    \"host\": \"10.10.10.1\",\n    \"interface\": \"Loopback1\",\n    \"description\": \"this is my description\"\n  }\n]"
             },
-
             {
                 "role": "user",
                 "content": "Set interface GigabitEthernet0/1 description to \"Uplink to Core Switch\" on 192.168.0.1 using user netops and password cisco"
@@ -119,14 +118,18 @@ def send_command(channel, cmd, pause=1):
     return channel.recv(9999).decode()
 
 def configure_interface_description(client, interface, description, hostname,username,password):
-    client.connect(hostname=hostname, port=22,username=username, password=password, banner_timeout=600)
-    config = """
-        configure terminal
-        interface GigabitEthernet0/1
-        description Uplink to Core Switch
-        end
-
-    """
+    while True:
+        try:
+            client.connect(hostname=hostname, port=22,username=username, password=password, banner_timeout=600)
+            break
+        except Exception as e:
+            if "Error reading SSH protocol banner" in str(e):
+                continue
+            else:
+                raise Exception(str(e))
+                break
+                
+        
     channel = client.invoke_shell()
     time.sleep(1)
     channel.recv(9999)  # flush banner
@@ -139,6 +142,7 @@ def configure_interface_description(client, interface, description, hostname,use
     # Try exiting config mode — and answer 'yes' when asked
     output = send_command(channel, 'end', pause=2)
 
+    print(output)
     if 'commit them before exiting' in output:
         send_command(channel, 'yes', pause=2)
 
@@ -168,9 +172,14 @@ def send_promp(prompt):
             username = item["username"]
             password = item["password"]
             for command in item["commands"]:
-                print("{}COLLECTING: {}{}".format(Fore.GREEN,command,Style.RESET_ALL))  
-                command_output = collect(client,command,hostname=hostname,username=username,password=password)                
-                print("{}COMMAND OUTPUT: {}\n{}{}".format(Fore.YELLOW,command, command_output,Style.RESET_ALL))  
+                print("{}COLLECTING: {}{}".format(Fore.GREEN,command,Style.RESET_ALL))
+                while True:
+                    try:  
+                        command_output = collect(client,command,hostname=hostname,username=username,password=password)                
+                        print("{}COMMAND OUTPUT: {}\n{}{}".format(Fore.YELLOW,command, command_output,Style.RESET_ALL))  
+                        break
+                    except:
+                        pass
                 try:
                     parsed_output = parse(command,command_output)
                     print("{}COMMAND PARSER OUTPUT: {}\n{}{}".format(Fore.MAGENTA,command, json.dumps(parsed_output,indent=4),Style.RESET_ALL))  
@@ -182,16 +191,16 @@ def send_promp(prompt):
             password = item["password"]
             interface = item["interface"]
             description = item["description"]
-            config_output = configure_interface_description(client, interface, description, hostname,username,password)
-            print(config_output)
+            while True:
+                try:  
+                    config_output = configure_interface_description(client, interface, description, hostname,username,password)
+                    print(config_output)
+                    break
+                except:
+                    pass
 def main():
-    
-    SANDBOX_HOST = os.environ.get("SANDBOX_HOST")
-    SANDBOX_USERNAME = os.environ.get("SANDBOX_USERNAME")
-    SANDBOX_PASSWORD = os.environ.get("SANDBOX_PASSWORD")
-    #SANDBOX_PORT = os.environ.get("SANDBOX_PORT")
-    prompt = "Collect show clock, show route ipv4, show arp, show run interface, and show version from {} with username {} and password {}".format(SANDBOX_HOST,SANDBOX_USERNAME,SANDBOX_PASSWORD)
-    send_promp(prompt)
-    prompt = "Configure Loopback1 interface description to \"hello cisco ai 123\" of {} with username {} and password {}".format(SANDBOX_HOST,SANDBOX_USERNAME,SANDBOX_PASSWORD)
-    send_promp(prompt)
+    while True:
+        prompt = input("Enter your prompt(Ctrl+C to exit): ")
+        send_promp(prompt)
+        
 main()
