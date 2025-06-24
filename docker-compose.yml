@@ -4,5 +4,8 @@ services:
     working_dir: /app
     volumes:
       - ./:/app
+    ports:
+      - 7080:80
+      - 7081:8081
     env_file: .env
     tty: true

@@ -66,7 +66,28 @@ Configure Loopback1 interface description to "hello cisco ai 123" of sandbox-ios
    pip install -r requirements.txt
    ```
 
-6. **Run the Main Script**
+### Running via CLI
+
+1. **Access the Container**
    ```sh
-   python main.py
+   docker exec -it <container_id> bash
    ```
+2. **Run the Cli Script**
+   ```sh
+   python cli.py
+   ```
+
+
+## Web Based
+
+### Running API Server
+
+1. Launch the FastAPI dev server
+```
+fastapi dev api.py --host 0.0.0.0 --port 80
+```
+2. Since the container port 80 is mapped to host OS port 7080. Open your browser, then go to:
+```
+http://localhost:7080/docs
+```
+3. You can Swagger to send prompt.

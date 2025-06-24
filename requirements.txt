@@ -2,3 +2,4 @@ paramiko
 textfsm
 requests
 colorama
+fastapi[standard]
