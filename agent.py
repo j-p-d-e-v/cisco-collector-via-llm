@@ -46,11 +46,11 @@ def send_prompt(prompt):
                         print("{}COMMAND EXECUTION ERROR: {}\n{}{}".format(Fore.RED,command, str(e),Style.RESET_ALL))  
                 try:
                     result["parsed"] = parse(command,result["raw"])
-                    collection_data.append(result)
                     print("{}COMMAND PARSER OUTPUT: {}\n{}{}".format(Fore.MAGENTA,command, json.dumps(result["parsed"],indent=4),Style.RESET_ALL))  
                 except Exception as e:
                     result["error"] = str(e)
                     print("{}COMMAND PARSER ERROR: {} {}".format(Fore.RED,str(e),Style.RESET_ALL)) 
+                collection_data.append(result)
             return prepare_output(item["action"],collection_data)
         elif item["action"] == "configure-interface-description":
             hostname = item["host"]

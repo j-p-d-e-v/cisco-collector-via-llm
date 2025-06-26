@@ -14,6 +14,7 @@ function send_prompt(evt){
     "loading": true,
     "output": null
   });
+  evt.target.value = "";
   axios.get(`http://localhost:7080/?prompt=${prompt_input}`).then((response)=>{
     const result = response.data;
     prompts.value[index]["output"] = result.data;
@@ -33,7 +34,7 @@ function send_prompt(evt){
     <div align="center">
       <svg xmlns="http://www.w3.org/2000/svg" width="92" height="92" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot-icon lucide-bot"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
       <h3 style="margin-bottom:2px;font-size:24pt;padding:0px;margin:0px;">
-        Hello! Im you Network Agent
+        Hello! Im your Network Agent
       </h3>
     </div>
     <div id="prompts">
@@ -57,7 +58,7 @@ function send_prompt(evt){
       </div>
     </div>
     <div>
-      <input type="text" @keypress.enter="send_prompt" id="prompt-input" placeholder="How can I help you?"/>
+      <textarea @keypress.enter="send_prompt" id="prompt-input" placeholder="How can I help you?"></textarea>
     </div>
   </div>
 </template>
@@ -108,12 +109,10 @@ body {
   width:100%;
 }
 #chat-container {
-  width:800px;
+  width:100%;
   height:80vh;
   padding:20px;
   color:#fff;
-  border-radius: 10px;
-  margin-top:10px;
   margin-left:auto;
   margin-right:auto;
 }

@@ -1,6 +1,6 @@
 services:
   llm_py:
-    image: python:3.13.5
+    image: agentic:latest
     working_dir: /app
     volumes:
       - ./:/app
